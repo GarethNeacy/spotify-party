@@ -27,9 +27,6 @@ export default {
     }
   },
   methods: {
-    generateRandomCode(){
-
-    },
     createRoom(){
       axios.post('/api/rooms').then((res) => {
         this.$router.push({name: 'room', params: {roomId: res.data.code}});
@@ -37,7 +34,6 @@ export default {
     },
     joinRoom(){
       axios.get(`/api/rooms/${this.roomCode}`).then((res) => {
-        console.log(res.data);
         if (res.data.code) this.$router.push({name: 'room', params: {roomId: this.roomCode}});
       })
     }

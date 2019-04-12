@@ -16,7 +16,6 @@ async function getRooms(req, res){
 }
 
 async function getRoom(req, res){
-  console.log(req.params.roomCode);
   const repo = await loadRoomsCollection();
   const room = await repo.findOne({code: req.params.roomCode});
   res.send(room);
